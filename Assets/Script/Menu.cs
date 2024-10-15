@@ -11,4 +11,14 @@ public class Menu : MonoBehaviour
    SceneManager.LoadScene("Jogo");
 }
 
+public void Fase2()
+{
+    SceneManager.LoadScene("Fase2");
+}
+
+public void Menuu()
+{
+    SceneManager.LoadScene("Menu");
+}
+
 }

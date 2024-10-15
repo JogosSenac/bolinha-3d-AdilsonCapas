@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Dababy : MonoBehaviour
 {
@@ -9,10 +11,16 @@ public class Dababy : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private float velocidade;
     [SerializeField] private float forcaPulo;
-    // Start is called before the first frame update
+    int pontos = 0;
+    private TextMeshProUGUI textoPontos;
+    private TextMeshProUGUI textoTotal;
+   
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        textoPontos = GameObject.FindGameObjectWithTag("Pontos").GetComponent<TextMeshProUGUI>();
+        textoTotal = GameObject.Find("Total").GetComponent<TextMeshProUGUI>();
+        textoTotal.text = GameObject.FindGameObjectsWithTag("CuboBrilhante").Length.ToString();
     }
 
     // Update is called once per frame
@@ -29,13 +37,29 @@ public class Dababy : MonoBehaviour
         {
             rb.AddForce(transform.up * forcaPulo, ForceMode.Impulse);
         }
+
+        if( pontos == 10)
+        {
+            SceneManager.LoadScene("Fase2Menu");
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+   private void OnTriggerEnter(Collider other)
 {
     if (other.gameObject.CompareTag("CuboBrilhante"))
     {
+        // Disable the collider to prevent multiple triggers
+        other.enabled = false;
+
+        pontos++;
+        textoPontos.text = pontos.ToString();
         Destroy(other.gameObject);
     }
+    else if (other.gameObject.CompareTag("Lava"))
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene("Morte");
+    }
 }
+
 }
