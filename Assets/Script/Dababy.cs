@@ -14,6 +14,7 @@ public class Dababy : MonoBehaviour
     int pontos = 0;
     private TextMeshProUGUI textoPontos;
     private TextMeshProUGUI textoTotal;
+    
    
     void Start()
     {
@@ -59,6 +60,11 @@ public class Dababy : MonoBehaviour
     {
         Destroy(gameObject);
         SceneManager.LoadScene("Morte");
+    }
+    else if (other.gameObject.CompareTag("Lava2"))
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene("Morte2");
     }
 }
 
