@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -283,14 +284,14 @@ RectTransform:
   m_GameObject: {fileID: 863962857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.6695082, y: 2.6695082, z: 2.6695082}
+  m_LocalScale: {x: 5.760532, y: 5.760532, z: 5.760532}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1249404729}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.9535788, y: 0.9502427}
   m_AnchorMax: {x: 0.9535788, y: 0.9502427}
-  m_AnchoredPosition: {x: -530, y: -36.5}
+  m_AnchoredPosition: {x: -1124, y: -60}
   m_SizeDelta: {x: 246.8948, y: 45.124817}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863962859
@@ -376,7 +377,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 222.66591, y: 0, z: -91.242065, w: -73.99774}
+  m_margin: {x: 3.274601, y: 0, z: -91.242065, w: 6.2171803}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -521,12 +522,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1249404725
 GameObject:
   m_ObjectHideFlags: 0

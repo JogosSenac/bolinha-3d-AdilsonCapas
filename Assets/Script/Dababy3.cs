@@ -6,7 +6,7 @@ using TMPro;
 
 public class Dababy3 : MonoBehaviour
 {
-     private float moveH;
+    private float moveH;
     private float moveV;
     private Rigidbody rb;
     [SerializeField] private float velocidade;
@@ -51,16 +51,16 @@ public class Dababy3 : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x * (1 - desaceleracao * Time.deltaTime), rb.velocity.y, rb.velocity.z * (1 - desaceleracao * Time.deltaTime));
         }
 
-        // Verifica se o botão esquerdo do mouse foi pressionado
-        if (Input.GetMouseButtonDown(0) && !olhandoParaTras)
+        // Verifica se a tecla "P" foi pressionada
+        if (Input.GetKeyDown(KeyCode.P) && !olhandoParaTras)
         {
             // Vira o jogador diretamente para trás (90 graus em relação ao inicial de -90)
             transform.rotation = Quaternion.Euler(0f, 90f, 0f);
             olhandoParaTras = true;
         }
 
-        // Verifica se o botão esquerdo do mouse foi solto
-        if (Input.GetMouseButtonUp(0) && olhandoParaTras)
+        // Verifica se a tecla "P" foi solta
+        if (Input.GetKeyUp(KeyCode.P) && olhandoParaTras)
         {
             // Retorna o jogador à rotação original de -90 graus
             transform.rotation = Quaternion.Euler(0f, -90f, 0f);
