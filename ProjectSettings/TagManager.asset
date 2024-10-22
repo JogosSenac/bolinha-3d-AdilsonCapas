@@ -8,6 +8,8 @@ TagManager:
   - Pontos
   - Lava
   - Lava2
+  - Parede
+  - "Ch\xE3o"
   layers:
   - Default
   - TransparentFX

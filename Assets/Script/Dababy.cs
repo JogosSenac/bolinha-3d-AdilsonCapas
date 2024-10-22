@@ -39,7 +39,7 @@ public class Dababy : MonoBehaviour
             rb.AddForce(transform.up * forcaPulo, ForceMode.Impulse);
         }
 
-        if( pontos == 10)
+        if( pontos == 14)
         {
             SceneManager.LoadScene("Fase2Menu");
         }
