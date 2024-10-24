@@ -73,12 +73,15 @@ public class Dababy2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CuboBrilhante"))
         {
-            other.enabled = false;
-            pontos++;
-            audioPlayer.PlayOneShot(pegaCubo);
-            textoPontos.text = pontos.ToString();
-            Destroy(other.gameObject);
-            VerificaObjetivos();
+            Debug.Log("Tag CuboBrilhante detectada");
+        other.enabled = false;
+        pontos++;
+        Debug.Log("Foi");
+        audioPlayer.PlayOneShot(pegaCubo);
+        textoPontos.text = pontos.ToString();
+        Debug.Log("Destruindo objeto: " + other.gameObject.name);
+        Destroy(other.gameObject);
+        VerificaObjetivos();
         }
         else if (other.gameObject.CompareTag("Lava2"))
         {

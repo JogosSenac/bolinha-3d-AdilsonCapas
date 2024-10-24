@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Morte3.unity
     guid: f70ea23b1cfdb87409a7f916bccc4f36
   - enabled: 1
+    path: Assets/Scenes/Vitoria.unity
+    guid: db3639df3900a7a47b21f3a65001b61d
+  - enabled: 1
     path: Assets/Scenes/Morte2.unity
     guid: 9172de42806e0e64c9383f17f64f146a
   - enabled: 1

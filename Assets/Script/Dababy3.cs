@@ -92,5 +92,14 @@ public class Dababy3 : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene("Morte3");
         }
+        else if (other.gameObject.CompareTag("Lava"))
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("Morte3");
+        }
+        else if (other.gameObject.CompareTag("Chão"))
+        {
+            SceneManager.LoadScene("Vitoria");
+        }
     }
 }

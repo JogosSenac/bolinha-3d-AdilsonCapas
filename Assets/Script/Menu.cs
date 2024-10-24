@@ -21,4 +21,9 @@ public void Menuu()
     SceneManager.LoadScene("Menu");
 }
 
+public void final()
+{
+    SceneManager.LoadScene("Final");
+}
+
 }
