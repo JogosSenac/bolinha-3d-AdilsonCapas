@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +10,16 @@ public class Seguir : MonoBehaviour
     public float moveSpeed = 3f; // Velocidade de movimento do boneco
     private bool shouldFollow = false; // Variável para controlar quando seguir
     public Button botao;
+    public Image painel;
+    public TMP_Text textoo;
+    public Dababy3 dababyScript;
 
     void Start()
     {
         botao.gameObject.SetActive(false);
-         StartCoroutine(Botao(4f));
+        painel.gameObject.SetActive(false);
+        textoo.gameObject.SetActive(false);
+        StartCoroutine(Botao(4f));
     }
 
     void Update()
@@ -31,8 +37,10 @@ public class Seguir : MonoBehaviour
 
     public IEnumerator Botao(float A)
     {
-         yield return new WaitForSeconds(A);
-         botao.gameObject.SetActive(true);
+        yield return new WaitForSeconds(A);
+        botao.gameObject.SetActive(true);
+        painel.gameObject.SetActive(true);
+        textoo.gameObject.SetActive(true);
     }
 
     // Método para ser chamado quando o botão for clicado
@@ -40,5 +48,9 @@ public class Seguir : MonoBehaviour
     {
         shouldFollow = true;
         botao.gameObject.SetActive(false);
+        painel.gameObject.SetActive(false);
+        textoo.gameObject.SetActive(false);
+        dababyScript.podeMover = true; // Habilita o movimento
+        
     }
 }

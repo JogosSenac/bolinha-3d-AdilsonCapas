@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.ComponentModel;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Dababy2 : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class Dababy2 : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private float velocidade;
     [SerializeField] private float forcaPulo;
+    [SerializeField] private AudioClip pulo;
+    [SerializeField] private AudioClip pegaCubo;
+    public AudioSource audioPlayer;
     int pontos = 0;
     private TextMeshProUGUI textoPontos;
     private TextMeshProUGUI textoTotal;
@@ -47,6 +52,7 @@ public class Dababy2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(transform.up * forcaPulo, ForceMode.Impulse);
+            audioPlayer.PlayOneShot(pulo);
         }
 
         // Checa se o jogador tem 8 pontos e faz a rotação uma única vez
@@ -69,13 +75,10 @@ public class Dababy2 : MonoBehaviour
         {
             other.enabled = false;
             pontos++;
+            audioPlayer.PlayOneShot(pegaCubo);
             textoPontos.text = pontos.ToString();
             Destroy(other.gameObject);
-        }
-        else if (other.gameObject.CompareTag("Lava"))
-        {
-            Destroy(gameObject);
-            SceneManager.LoadScene("Morte");
+            VerificaObjetivos();
         }
         else if (other.gameObject.CompareTag("Lava2"))
         {
@@ -103,4 +106,31 @@ public class Dababy2 : MonoBehaviour
     // Destroi o objeto
     Destroy(objetoParaDestruir);
 }
+
+private void VerificaObjetivos()
+    {
+        int totalCubos = Int32.Parse(textoTotal.text);
+        TextMeshProUGUI objetivo = GameObject.Find("Objetivo").GetComponent<TextMeshProUGUI>();
+        Debug.LogFormat($"Pontos: {pontos}, Total Cubos: {totalCubos}");
+        
+        if(pontos < totalCubos)
+        {
+            objetivo.text = "Pegue todos os óleos!";
+        }
+        
+        if(pontos >= totalCubos / 2)
+        {
+            objetivo.text = "Continue assim!";
+        }
+        
+        if(pontos >= totalCubos - 5)
+        {
+            objetivo.text = "Quase no fim!";
+        }
+        
+        if(pontos == totalCubos)
+        {
+            objetivo.text = "Todos os óleos coletados, vá para o espaço preto!";
+        }
+    }
 }

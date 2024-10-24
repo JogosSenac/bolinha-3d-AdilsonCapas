@@ -10,6 +10,8 @@ TagManager:
   - Lava2
   - Parede
   - "Ch\xE3o"
+  - Objetivo
+  - Agua
   layers:
   - Default
   - TransparentFX
