@@ -6,7 +6,7 @@ public class Musica : MonoBehaviour
 {
     private AudioSource audioSource;
 
-    void Start()
+    void Update()
     {
         // Obtém o componente AudioSource do GameObject
         audioSource = GetComponent<AudioSource>();

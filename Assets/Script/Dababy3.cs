@@ -47,11 +47,11 @@ public class Dababy3 : MonoBehaviour
 
         if (moveDirection.magnitude > 0.1)
         {
-            rb.velocity = new Vector3(moveDirection.x * velocidade, rb.velocity.y, moveDirection.z * velocidade);
+            rb.linearVelocity = new Vector3(moveDirection.x * velocidade, rb.linearVelocity.y, moveDirection.z * velocidade);
         }
         else
         {
-            rb.velocity = new Vector3(rb.velocity.x * (1 - desaceleracao * Time.deltaTime), rb.velocity.y, rb.velocity.z * (1 - desaceleracao * Time.deltaTime));
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x * (1 - desaceleracao * Time.deltaTime), rb.linearVelocity.y, rb.linearVelocity.z * (1 - desaceleracao * Time.deltaTime));
         }
 
         if (Input.GetKeyDown(KeyCode.P) && !olhandoParaTras)
