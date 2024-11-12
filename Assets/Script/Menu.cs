@@ -25,5 +25,9 @@ public void final()
 {
     SceneManager.LoadScene("Final");
 }
+public void credito()
+{
+    SceneManager.LoadScene("Créditos");
+}
 
 }

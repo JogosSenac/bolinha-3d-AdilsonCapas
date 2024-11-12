@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1866,6 +1865,7 @@ MonoBehaviour:
   forcaPulo: 5
   pulo: {fileID: 8300000, guid: c56c3a16b0f438f4396d16cff7a7d98e, type: 3}
   pegaCubo: {fileID: 8300000, guid: 1017e2f3c5c7ef64faebcfa1a41de626, type: 3}
+  morte: {fileID: 8300000, guid: 3155837a2efa95c42aeb02280a9294ee, type: 3}
   audioPlayer: {fileID: 1064465069}
   sceneTransition: {fileID: 1064465064}
   animacaoObjeto: {fileID: 1278853803}
@@ -3092,12 +3092,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!114 &737781503
 MonoBehaviour:
   m_ObjectHideFlags: 0

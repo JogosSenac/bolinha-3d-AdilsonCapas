@@ -16,6 +16,7 @@ public class Dababy2 : MonoBehaviour
     [SerializeField] private float forcaPulo;
     [SerializeField] private AudioClip pulo;
     [SerializeField] private AudioClip pegaCubo;
+    [SerializeField] private AudioClip morte;
     public AudioSource audioPlayer;
     int pontos = 0;
     private TextMeshProUGUI textoPontos;
@@ -85,8 +86,8 @@ public class Dababy2 : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Lava2"))
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("Morte2");
+            audioPlayer.PlayOneShot(morte);
+            StartCoroutine(Morte(0.5f));
         }
         else if(other.gameObject.CompareTag("Finish"))
         {
@@ -136,4 +137,11 @@ private void VerificaObjetivos()
             objetivo.text = "Todos os óleos coletados, vá para o espaço preto!";
         }
     }
+    private IEnumerator Morte(float delay)
+    {
+        yield return new WaitForSeconds(delay); 
+
+        SceneManager.LoadScene("Morte2");
+        Destroy(gameObject);
+    }    
 }

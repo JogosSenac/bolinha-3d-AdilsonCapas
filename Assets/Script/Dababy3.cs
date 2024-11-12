@@ -13,6 +13,7 @@ public class Dababy3 : MonoBehaviour
     [SerializeField] private float forcaPulo;
     [SerializeField] private float desaceleracao = 2f;
     [SerializeField] private AudioClip pulo;
+    [SerializeField] private AudioClip morte;
     public AudioSource audioPlayer;
     private bool olhandoParaTras = false;
     int pontos = 0;
@@ -47,11 +48,11 @@ public class Dababy3 : MonoBehaviour
 
         if (moveDirection.magnitude > 0.1)
         {
-            rb.linearVelocity = new Vector3(moveDirection.x * velocidade, rb.linearVelocity.y, moveDirection.z * velocidade);
+            rb.velocity = new Vector3(moveDirection.x * velocidade, rb.velocity.y, moveDirection.z * velocidade);
         }
         else
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x * (1 - desaceleracao * Time.deltaTime), rb.linearVelocity.y, rb.linearVelocity.z * (1 - desaceleracao * Time.deltaTime));
+            rb.velocity = new Vector3(rb.velocity.x * (1 - desaceleracao * Time.deltaTime), rb.velocity.y, rb.velocity.z * (1 - desaceleracao * Time.deltaTime));
         }
 
         if (Input.GetKeyDown(KeyCode.P) && !olhandoParaTras)
@@ -89,11 +90,12 @@ public class Dababy3 : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Agua"))
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("Morte3");
+            audioPlayer.PlayOneShot(morte);
+            StartCoroutine(Morte(0.5f));
         }
         else if (other.gameObject.CompareTag("Lava"))
         {
+            audioPlayer.PlayOneShot(morte);
             Destroy(gameObject);
             SceneManager.LoadScene("Morte3");
         }
@@ -102,4 +104,11 @@ public class Dababy3 : MonoBehaviour
             SceneManager.LoadScene("Vitoria");
         }
     }
+    private IEnumerator Morte(float delay)
+    {
+        yield return new WaitForSeconds(delay); 
+
+        SceneManager.LoadScene("Morte3");
+        Destroy(gameObject);
+    }    
 }
